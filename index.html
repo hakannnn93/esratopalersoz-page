@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avukat Esra Topal Ersöz</title>
+<meta name="description" content="Avukat Esra Topal Ersöz — internet sitesi yapım aşamasındadır, çok yakında yayında olacaktır.">
+<meta name="theme-color" content="#1D3225">
+<link rel="icon" href="scale-icon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Avukat Esra Topal Ersöz">
+<meta property="og:description" content="Bu internet sitesi şu anda tasarım aşamasındadır. Çok yakında yayında olacaktır.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #1D3225; }
+  a { color: #F7F2E4; }
+  a:hover { color: #C9BC96; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+  .page {
+    min-height: 100vh;
+    background: #1D3225;
+    color: #F7F2E4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 64px 24px;
+    box-sizing: border-box;
+    font-family: Jost, system-ui, sans-serif;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(60% 55% at 50% 38%, rgba(247,242,228,0.055), rgba(247,242,228,0) 70%);
+    pointer-events: none;
+  }
+  .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: rise 900ms cubic-bezier(.2,.7,.3,1) both;
+  }
+  .emblem { width: 96px; height: auto; display: block; }
+  .eyebrow {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    margin-top: 40px;
+    opacity: 0.72;
+  }
+  .name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    font-size: 68px;
+    line-height: 1.05;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 14px 0 0;
+  }
+  .rule {
+    width: 84px;
+    height: 1px;
+    background: rgba(247,242,228,0.35);
+    margin: 48px 0;
+  }
+  .lead {
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.75;
+    max-width: 30em;
+    margin: 0;
+    opacity: 0.88;
+    text-wrap: pretty;
+  }
+  .thanks {
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.75;
+    margin: 56px 0 0;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 640px) {
+    .page { padding: 48px 20px; }
+    .emblem { width: 76px; }
+    .eyebrow { font-size: 16px; letter-spacing: 0.32em; margin-top: 32px; }
+    .name { font-size: 38px; letter-spacing: 0.1em; }
+    .rule { margin: 36px 0; }
+    .lead, .thanks { font-size: 16px; }
+    .thanks { margin-top: 40px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .content { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="glow"></div>
+
+  <div class="content">
+    <img class="emblem" src="scale-icon.svg" alt="Terazi amblemi">
+
+    <div class="eyebrow">Avukat</div>
+
+    <h1 class="name">Esra Topal Ersöz</h1>
+
+    <div class="rule"></div>
+
+    <p class="lead">Bu internet sitesi şu anda tasarım aşamasındadır. Çok yakında yayında olacaktır.</p>
+
+    <p class="thanks">Anlayışınız İçin Teşekkür Ederiz</p>
+  </div>
+</div>
+</body>
+</html>
