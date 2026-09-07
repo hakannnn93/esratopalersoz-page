@@ -310,6 +310,29 @@
     color: rgba(247,242,228,0.66);
   }
 
+  /* "Daha Fazlası" düğmesi — yalnızca dar ekranda ve JS varken görünür */
+  .more-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 18px;
+    padding: 16px 24px;
+    background: none;
+    border: 1px solid rgba(247,242,228,0.4);
+    border-radius: 2px;
+    color: var(--cream);
+    font-family: inherit;
+    font-size: 15px;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: border-color 160ms ease;
+  }
+  .more-btn:hover { border-color: var(--cream); }
+  .more-btn-icon { transition: transform 200ms ease; }
+  .more-btn[aria-expanded="true"] .more-btn-icon { transform: rotate(180deg); }
+
   /* Yayınlar */
   .pub-intro {
     font-size: 18px;
@@ -555,6 +578,8 @@
 
     .section-lead, .contact-lead { font-size: 23px; margin-bottom: 34px; }
     .cards { grid-template-columns: 1fr; }
+    .cards.is-collapsible:not(.is-open) .card-extra { display: none; }
+    .cards.is-collapsible + .more-btn { display: flex; }
     .pub { grid-template-columns: 1fr; gap: 10px; }
     .pub-title { font-size: 21px; }
     .pub-meta { text-align: left; }
@@ -634,8 +659,8 @@
         </div>
         <div>
           <p class="lead">Ankara Barosu'na kayıtlı serbest avukat olarak çalışıyorum.</p>
-          <p class="body">Hacettepe Üniversitesi Hukuk Fakültesi mezunuyum. Avukatlık stajımı Ankara Barosu'nda tamamladıktan sonra Eskişehir ve Ankara'da hem serbest avukat hem de şirket avukatı olarak çalıştım; bu süreçte ağırlıklı olarak sözleşme hukuku, iş ve istihdam hukuku ile ticari uyuşmazlıklar üzerine yoğunlaştım. Ayrıca sözleşme hukuku alanında eğitmenlik yapıyorum.</p>
-          <p class="body">Danışmanlık ve uyuşmazlık çözümü süreçlerinde, hukuki ve ticari süreçleri bir arada değerlendiren bir yaklaşım benimsiyorum. Mesleki gelişimimi düzenli aldığım eğitim ve sertifika programlarıyla sürdürüyorum.</p>
+          <p class="body">Ankara Yıldırım Beyazıt Üniversitesi Hukuk Fakültesi mezunuyum; yüksek lisans eğitimimi Hacettepe Üniversitesi Hukuk Fakültesinde tamamladım. Avukatlık stajımın ardından Eskişehir ve Ankara'da hem serbest hem de şirket avukatı olarak görev aldım. Bu süreçte ağırlıklı olarak sözleşmeler hukuku, iş ve istihdam hukuku ile ticari uyuşmazlıklar alanlarına odaklandım ve sözleşmeler hukuku kapsamında eğitimler verdim.</p>
+          <p class="body">Danışmanlık ve uyuşmazlık çözümü süreçlerinde, hukuki gereklilikleri ticari gerçeklerle bütünleştiren pratik bir yaklaşım benimsiyorum. Şeffaf iletişimi ve müvekkil menfaatlerini merkeze alan bir anlayışla hareket ederken, mesleki gelişimimi uzmanlık alanlarıma yönelik sertifika ve eğitim programlarıyla güncel tutuyorum.</p>
         </div>
       </div>
 
@@ -660,13 +685,7 @@
     <section class="shell section" id="alanlar">
       <div class="eyebrow">Çalışma Alanları</div>
       <p class="section-lead">Danışmanlık ve uyuşmazlık çözümü süreçlerinde, hukuki ve ticari süreçleri bir arada değerlendiren bir yaklaşım benimsiyorum.</p>
-      <div class="cards">
-
-        <article class="card">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9BC96" stroke-width="1.1" aria-hidden="true"><rect x="3" y="7" width="8" height="14"/><rect x="13" y="3" width="8" height="18"/><path d="M5.5 11h3M15.5 7h3M15.5 11h3"/></svg>
-          <h3>Şirketler ve Ticaret Hukuku</h3>
-          <p>Ticari sözleşmeler, şirketler hukuku ve ticari uyuşmazlıklar kapsamında hukuki destek.</p>
-        </article>
+      <div class="cards" id="cards">
 
         <article class="card">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9BC96" stroke-width="1.1" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h4"/></svg>
@@ -675,21 +694,9 @@
         </article>
 
         <article class="card">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9BC96" stroke-width="1.1" aria-hidden="true"><path d="M4 20V9l8-5 8 5v11"/><path d="M4 20h16M9.5 20v-6h5v6"/></svg>
-          <h3>İcra ve İflas Hukuku</h3>
-          <p>Alacak takibi, icra süreçleri ve iflas hukuku kapsamında danışmanlık ve dava takibi.</p>
-        </article>
-
-        <article class="card">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9BC96" stroke-width="1.1" aria-hidden="true"><path d="M4 21V6l7-3v18"/><path d="M11 21h9V11l-9-2"/><path d="M14.5 14h2M14.5 17.5h2"/></svg>
-          <h3>İdare Hukuku</h3>
-          <p>İdari işlem ve eylemlere karşı başvuru süreçleri ile idari yargı uyuşmazlıkları.</p>
-        </article>
-
-        <article class="card">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9BC96" stroke-width="1.1" aria-hidden="true"><path d="M12 3l7 3v6c0 4-3 7.5-7 9-4-1.5-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
-          <h3>Sigorta Hukuku</h3>
-          <p>Sigorta sözleşmelerinden doğan uyuşmazlıklar ve tazminat süreçleri.</p>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9BC96" stroke-width="1.1" aria-hidden="true"><rect x="3" y="7" width="8" height="14"/><rect x="13" y="3" width="8" height="18"/><path d="M5.5 11h3M15.5 7h3M15.5 11h3"/></svg>
+          <h3>Şirketler ve Ticaret Hukuku</h3>
+          <p>Ticari sözleşmeler, şirketler hukuku ve ticari uyuşmazlıklar kapsamında hukuki destek.</p>
         </article>
 
         <article class="card">
@@ -699,24 +706,46 @@
         </article>
 
         <article class="card">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9BC96" stroke-width="1.1" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
-          <h3>Yabancılar ve Vatandaşlık Hukuku</h3>
-          <p>İkamet, çalışma izni, vatandaşlık ve uluslararası koruma süreçleri.</p>
-        </article>
-
-        <article class="card">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9BC96" stroke-width="1.1" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M9 9h6M9 13h6M9 17h3"/></svg>
-          <h3>Ceza Hukuku</h3>
-          <p>Soruşturma ve kovuşturma aşamalarında müdafilik ve vekillik hizmeti.</p>
-        </article>
-
-        <article class="card">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9BC96" stroke-width="1.1" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M3 20v-2a4 4 0 0 1 4-4h2M15 14h2a4 4 0 0 1 4 4v2M12 15v6"/></svg>
           <h3>Aile Hukuku</h3>
           <p>Boşanma, nafaka, velayet ve mal rejimi uyuşmazlıklarında danışmanlık ve dava takibi.</p>
         </article>
 
+        <article class="card card-extra">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9BC96" stroke-width="1.1" aria-hidden="true"><path d="M4 20V9l8-5 8 5v11"/><path d="M4 20h16M9.5 20v-6h5v6"/></svg>
+          <h3>İcra ve İflas Hukuku</h3>
+          <p>Alacak takibi, icra süreçleri ve iflas hukuku kapsamında danışmanlık ve dava takibi.</p>
+        </article>
+
+        <article class="card card-extra">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9BC96" stroke-width="1.1" aria-hidden="true"><path d="M4 21V6l7-3v18"/><path d="M11 21h9V11l-9-2"/><path d="M14.5 14h2M14.5 17.5h2"/></svg>
+          <h3>İdare Hukuku</h3>
+          <p>İdari işlem ve eylemlere karşı başvuru süreçleri ile idari yargı uyuşmazlıkları.</p>
+        </article>
+
+        <article class="card card-extra">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9BC96" stroke-width="1.1" aria-hidden="true"><path d="M12 3l7 3v6c0 4-3 7.5-7 9-4-1.5-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          <h3>Sigorta Hukuku</h3>
+          <p>Sigorta sözleşmelerinden doğan uyuşmazlıklar ve tazminat süreçleri.</p>
+        </article>
+
+        <article class="card card-extra">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9BC96" stroke-width="1.1" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+          <h3>Yabancılar ve Vatandaşlık Hukuku</h3>
+          <p>İkamet, çalışma izni, vatandaşlık ve uluslararası koruma süreçleri.</p>
+        </article>
+
+        <article class="card card-extra">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9BC96" stroke-width="1.1" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M9 9h6M9 13h6M9 17h3"/></svg>
+          <h3>Ceza Hukuku</h3>
+          <p>Soruşturma ve kovuşturma aşamalarında müdafilik ve vekillik hizmeti.</p>
+        </article>
+
       </div>
+      <button class="more-btn" id="cards-more" type="button" aria-controls="cards" aria-expanded="false">
+        <span class="more-btn-label">Daha Fazlası</span>
+        <svg class="more-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
     </section>
 
     <!-- YAYINLAR -->
@@ -727,7 +756,7 @@
         <div class="pub">
           <span class="tag">Eğitim</span>
           <div>
-            <div class="pub-title">Sözleşme Hukuku Eğitimi</div>
+            <div class="pub-title">Temel Sözleşme Hukuku Eğitimi</div>
             <div class="pub-note">Human Ports bünyesinde verilen sözleşme hukuku eğitim programı.</div>
           </div>
           <span class="pub-meta">2024</span>
@@ -739,6 +768,14 @@
             <div class="pub-note">Udemy üzerinde yayımlanan online eğitim programı.</div>
           </div>
           <span class="pub-meta">Udemy</span>
+        </div>
+        <div class="pub">
+          <span class="tag">Yazı</span>
+          <div>
+            <a class="pub-title" href="https://medium.com/@av.esratopal/her-s%C3%B6zle%C5%9Fme-bir-risktir-59a7ec3d06b6" target="_blank" rel="noopener">Her Sözleşme Bir Risktir</a>
+            <div class="pub-note">Medium üzerinde yayımlanan yazı.</div>
+          </div>
+          <span class="pub-meta">Medium</span>
         </div>
       </div>
     </section>
@@ -844,24 +881,40 @@
 
 <script>
 (function () {
-  // Koyu filigran yalnızca beyaz hero bandının içinde görünsün.
+  var mobile = window.matchMedia('(max-width: 860px)');
+
+  // Filigran her iki zeminde de viewport'a sabit durur. Koyu kopya, beyaz hero
+  // bandının dışında görünmesin diye kırpılır. inset() değerleri elemanın KENDİ
+  // kutusuna göre ölçülür; filigran 118vh boyunda ve dikey ortalı olduğu için
+  // kutusu viewport'la örtüşmez. Bu yüzden kırpma payları elemanın kendi
+  // rect'ine göre hesaplanır — window.innerHeight kullanılmaz, çünkü mobilde
+  // adres çubuğu açılıp kapandıkça değişip kırpma bandını oynatıyordu.
   var band = document.getElementById('ust');
   var wm = document.getElementById('wm-dark');
+  var queued = false;
   function sync() {
+    queued = false;
     if (!band || !wm) return;
-    var r = band.getBoundingClientRect();
-    var top = Math.max(0, r.top);
-    var bottom = Math.max(0, window.innerHeight - r.bottom);
+    var hr = band.getBoundingClientRect();
+    var ir = wm.getBoundingClientRect();
+    var top = Math.max(0, hr.top - ir.top);
+    var bottom = Math.max(0, ir.bottom - hr.bottom);
     wm.style.clipPath = 'inset(' + top + 'px 0px ' + bottom + 'px 0px)';
   }
+  // Scroll olayları mobilde compositor'dan bağımsız tetiklendiği için kırpmayı
+  // doğrudan handler'da değil, bir sonraki kareye bindirerek güncelliyoruz.
+  function request() {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(sync);
+  }
   sync();
-  addEventListener('scroll', sync, true);
-  addEventListener('resize', sync);
+  addEventListener('scroll', request, { passive: true, capture: true });
+  addEventListener('resize', request);
 
   // Mobil menü
   var toggle = document.getElementById('nav-toggle');
   var nav = document.getElementById('nav');
-  var mobile = window.matchMedia('(max-width: 860px)');
 
   function close() {
     nav.hidden = true;
@@ -872,7 +925,7 @@
     if (mobile.matches) { close(); } else { nav.hidden = false; }
   }
   apply();
-  mobile.addEventListener('change', apply);
+  mobile.addEventListener('change', function () { apply(); request(); });
 
   toggle.addEventListener('click', function () {
     var open = nav.hidden;
@@ -883,6 +936,27 @@
 
   nav.addEventListener('click', function (e) {
     if (mobile.matches && e.target.closest('a')) close();
+  });
+
+  // Çalışma alanları — dar ekranda ilk 4 kart görünür, gerisi düğme altında
+  var cards = document.getElementById('cards');
+  var moreBtn = document.getElementById('cards-more');
+  var moreLabel = moreBtn.querySelector('.more-btn-label');
+  var extraCount = cards.querySelectorAll('.card-extra').length;
+  var collapsedLabel = 'Daha Fazlası (' + extraCount + ')';
+
+  cards.classList.add('is-collapsible');
+  moreLabel.textContent = collapsedLabel;
+
+  moreBtn.addEventListener('click', function () {
+    var open = !cards.classList.contains('is-open');
+    cards.classList.toggle('is-open', open);
+    moreBtn.setAttribute('aria-expanded', String(open));
+    moreLabel.textContent = open ? 'Daha Az Göster' : collapsedLabel;
+    if (!open) {
+      var top = cards.getBoundingClientRect().top;
+      if (top < 0) window.scrollTo({ top: window.scrollY + top - 90, behavior: 'smooth' });
+    }
   });
 })();
 </script>
